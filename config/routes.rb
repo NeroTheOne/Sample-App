@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  env = Rails.env
+  production_host = 'blooming-harbor-14086.herokuapp.com'
+  local_host = 'localhost:3000'
+  default_url_options :host => (env == "production") ? production_host : local_host
+
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
